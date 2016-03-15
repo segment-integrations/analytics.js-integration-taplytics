@@ -10,7 +10,7 @@ describe('Taplytics', function() {
   var analytics;
   var taplytics;
   var options = {
-    token: '82c35fe2ac8d43e09509e06a628cd6fc',
+    apiKey: '82c35fe2ac8d43e09509e06a628cd6fc',
     options: {
       log_level: -1
     }
@@ -35,7 +35,7 @@ describe('Taplytics', function() {
     analytics.compare(Taplytics, integration('Taplytics')
       .global('_tlq')
       .global('Taplytics')
-      .option('token', '')
+      .option('apiKey', '')
       .option('options', {})
       .tag('<script id="taplytics" src="https://cdn.taplytics.com/taplytics.min.js">')
       .assumesPageview());
