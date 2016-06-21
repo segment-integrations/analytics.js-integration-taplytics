@@ -1,10 +1,11 @@
+'use strict';
 
-var Analytics = require('analytics.js-core').constructor;
+var Analytics = require('@segment/analytics.js-core').constructor;
 var Taplytics = require('../lib/');
-var integration = require('analytics.js-integration');
-var is = require('is');
-var sandbox = require('clear-env');
-var tester = require('analytics.js-integration-tester');
+var integration = require('@segment/analytics.js-integration');
+var is = require('is-type');
+var sandbox = require('@segment/clear-env');
+var tester = require('@segment/analytics.js-integration-tester');
 
 describe('Taplytics', function() {
   var analytics;
@@ -264,11 +265,11 @@ describe('Taplytics', function() {
 
         analytics.calledOnce(window._tlq.push);
         analytics.called(window._tlq.push, ['identify', {
-            id: 'id',
-            groupId: 'group_id',
-            groupTraits: {
-              id: 'group_id'
-            }
+          id: 'id',
+          groupId: 'group_id',
+          groupTraits: {
+            id: 'group_id'
+          }
         }]);
       });
 
