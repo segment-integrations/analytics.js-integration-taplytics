@@ -3,7 +3,7 @@
 var Analytics = require('@segment/analytics.js-core').constructor;
 var Taplytics = require('../lib/');
 var integration = require('@segment/analytics.js-integration');
-var is = require('is-type');
+var is = require('is');
 var sandbox = require('@segment/clear-env');
 var tester = require('@segment/analytics.js-integration-tester');
 
