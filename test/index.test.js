@@ -45,12 +45,24 @@ describe('Taplytics', function() {
   describe('before loading', function() {
     beforeEach(function() {
       analytics.stub(taplytics, 'load');
+      analytics.stub(window._tlq, 'push');
       analytics.initialize();
     });
-
     describe('#initialize', function() {
       it('should create window._tlq', function() {
         analytics.assert(is.array(window._tlq));
+      });
+
+      it('should call init if sync load is false', function() {
+        taplytics.initialize();
+        analytics.calledOnce(window._tlq.push);
+        analytics.called(window._tlq.push, ['init', options.apiKey, options.options]);
+      });
+
+      it('should not call init if sync load is true', function() {
+        taplytics.options.options.sync_load = true;
+        taplytics.initialize();
+        analytics.didNotCall(window._tlq.push);
       });
     });
   });
